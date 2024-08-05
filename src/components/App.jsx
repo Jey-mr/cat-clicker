@@ -7,9 +7,7 @@ function App() {
 
   function handleClick (event) {
     var element = event.target;
-
     const cat = document.getElementById("cat");
-    console.log(cat);
 
     if (cat !== null){
       cat.setAttribute("id", "catshow");
