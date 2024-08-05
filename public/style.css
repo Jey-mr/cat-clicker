@@ -1,0 +1,13 @@
+.pictures {
+    width: 230px;
+    height: 250px;
+}
+
+.container, .stats {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.names {
+    text-align: center;
+}
