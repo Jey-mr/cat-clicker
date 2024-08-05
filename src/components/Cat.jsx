@@ -8,10 +8,18 @@ function Cat(props) {
         setClicks(count + 1);
     }
 
-    return (<div class="cats">
-        <h2 class="names">{props.name}</h2>
-        <img onClick={handleClick} class="pictures" src={props.src}/>
-        <div class="stats">
+    function handleChange() {
+        setClicks(0);
+    }
+
+    React.useEffect(() => {
+        handleChange();
+    }, [props.name, props.src]);
+
+    return (<div id="cat" className="cat">
+        <h2 className="names">{props.name}</h2>
+        <img onClick={handleClick} className="picture" src={props.src}/>
+        <div className="stats">
             <h2>No of clicks: </h2>
             <h2>{clicks}</h2>
         </div>

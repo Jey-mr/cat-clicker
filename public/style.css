@@ -1,13 +1,59 @@
 .pictures {
-    width: 230px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
+    padding-bottom: 10px;
 }
 
-.container, .stats {
+.picture {
+    width: 350px;
+    height: 350px;
+}
+
+.container, .stats{
     display: flex;
-    justify-content: space-evenly;
 }
 
-.names {
-    text-align: center;
+.content {
+    width: 80%;
+}
+
+.catlist {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: 700px;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-sizing: border-box; 
+}
+
+.catlist::-webkit-scrollbar {
+    width: 8px;
+}
+
+.catlist::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.catlist::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.catlist::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+#cat {
+    display: none;
+}
+
+#catshow {
+    display: block;
+}
+
+#cat, #catshow {
+    width: 50%;
+    padding-left: 15%;
 }
