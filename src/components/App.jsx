@@ -3,19 +3,43 @@ import Cats from '../cats';
 import Cat from './Cat';
 
 function App() {
-  const [cat, setCat] = React.useState({name: "", count: 0, src: ""});
+  const [cat, setCat] = React.useState({id: 0, name: "", count: 0, src: ""});
   const [catState, setCatState] = React.useState([]);
   const [once, setOnce] = React.useState(true);
 
   function handleClick (event) {
     var element = event.target;
     const cat = document.getElementById("cat");
+    var count;
 
     if (cat !== null){
       cat.setAttribute("id", "catshow");
     }
 
-    setCat({name: element.alt, count: 0, src: element.src});
+    for (var i=0; i<catState.length; i++) {
+      if (catState[i].id == element.id) {
+        count = catState[i].count;
+        break;
+      }
+    }
+
+    setCat({id: element.id, name: element.alt, count: count, src: element.src});
+  }
+
+  function handleChange (event) {
+    const element = event.target;
+    const id = element.id;
+    const temp = catState;
+
+    for (var i=0; i<temp.length; i++) {
+      if (temp[i].id == id) {
+        temp[i].count++;
+        setCat({...cat, count: temp[i].count});
+        break;
+      }
+    }
+
+    setCatState(temp);
   }
 
   function mountData () {
@@ -24,29 +48,17 @@ function App() {
     }));
   }
 
-  // function checkStatus () {
-  //   console.log(catState);
-  //   const temp = catState;
-
-  //   if (temp.length > 0  &&  once){
-  //     temp[0].count = 4;
-  //     setCatState(temp);
-  //     setOnce(false);
-  //   }
-  // }
-
   return (
     <div className="container">
       <div className="catlist">
         {catState.length === 0 ? mountData() : null}
-        {/* {checkStatus()} */}
         {catState.map((cat, index) => {
-          return <img onClick={handleClick} className="pictures" src={cat.src} alt={cat.name} key={index} />
+          return <img onClick={handleClick} className="pictures" src={cat.src} alt={cat.name} id={cat.id} key={index} />
         })}
       </div>
 
       <div className="content">
-        <Cat name={cat.name} count={cat.count} src={cat.src} />
+        <Cat increase={handleChange} id={cat.id} name={cat.name} count={cat.count} src={cat.src} />
       </div>
 
     </div>
