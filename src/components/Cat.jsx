@@ -9,7 +9,7 @@ function Cat(props) {
             <h2>No of clicks: </h2>
             <h2>{props.count}</h2>
         </div>
-        <Admin name={props.name} src={props.src} count={props.count} />
+        <Admin onSave={props.onSave} id={props.id} name={props.name} src={props.src} count={props.count} />
     </div>)
 }
 

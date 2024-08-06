@@ -41,6 +41,25 @@ function App() {
     setCatState(temp);
   }
 
+  function handleSave (cat) {
+    const catList = catState;
+    setCat(cat);
+
+    for (var i=0; i<catList.length; i++) {
+      if (catList[i].id == cat.id) {
+        catList[i] = cat;
+        setCatState(catList);
+        break;
+      }
+    }
+
+    const element = document.getElementById("catinfoshow");
+        
+    if (element !== null) {
+        element.setAttribute("id", "catinfo");
+    }
+}
+
   function mountData () {
     setCatState(Cats.map((cat, index) => {
       return ({id: index+1, ...cat});
@@ -58,7 +77,7 @@ function App() {
       </div>
 
       <div className="content">
-        <Cat increase={handleChange} id={cat.id} name={cat.name} count={cat.count} src={cat.src} />
+        <Cat increase={handleChange} onSave={handleSave} id={cat.id} name={cat.name} count={cat.count} src={cat.src} />
       </div>
 
     </div>

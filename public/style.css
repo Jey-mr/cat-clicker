@@ -51,11 +51,11 @@
     background: #555;
 }
 
-#cat {
+#cat, #catinfo {
     display: none;
 }
 
-#catshow {
+#catshow, #catinfoshow {
     display: block;
 }
 
