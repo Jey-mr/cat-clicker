@@ -5,7 +5,6 @@ import Cat from './Cat';
 function App() {
   const [cat, setCat] = React.useState({id: 0, name: "", count: 0, src: ""});
   const [catState, setCatState] = React.useState([]);
-  const [once, setOnce] = React.useState(true);
 
   function handleClick (event) {
     var element = event.target;
@@ -50,6 +49,7 @@ function App() {
 
   return (
     <div className="container">
+      
       <div className="catlist">
         {catState.length === 0 ? mountData() : null}
         {catState.map((cat, index) => {
