@@ -15,4 +15,4 @@
 
 * Another cat can be fetched by clicking it on a sidebar.
 
-* click count of a cat is consistent across the session.
+* Click count of a cat is consistent across the session.
