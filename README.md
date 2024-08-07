@@ -1,8 +1,18 @@
-# React + Vite
+# List of functionalities
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+* At start a list of cats appears in sidebar.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* Upon clicking a particular cat, it can be viewed.
+
+* A view of a cat shows its name, age groups, picture and click count.
+
+* By clicking a cat in a view mode will increase its click count.
+
+* Age group is varied with respect to the click count.
+
+* Name, picture and click count of a particular cat can be edited.
+
+* Another cat can be fetched by clicking it on a sidebar.
+
+* click count of a cat is consistent across the session.
