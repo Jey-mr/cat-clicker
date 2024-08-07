@@ -4,20 +4,20 @@ import Cat from './Cat';
 
 function App() {
   const [cat, setCat] = React.useState({id: 0, name: "", count: 0, src: ""});
-  const [catState, setCatState] = React.useState([]);
+  const [catList, setCatList] = React.useState([]);
 
   function handleClick (event) {
     var element = event.target;
-    const cat = document.getElementById("cat");
+    const catElement = document.getElementById("cat");
     var count;
 
-    if (cat !== null){
-      cat.setAttribute("id", "catshow");
+    if (catElement !== null){
+      catElement.setAttribute("id", "catshow");
     }
 
-    for (var i=0; i<catState.length; i++) {
-      if (catState[i].id == element.id) {
-        count = catState[i].count;
+    for (var i=0; i<catList.length; i++) {
+      if (catList[i].id == element.id) {
+        count = catList[i].count;
         break;
       }
     }
@@ -28,7 +28,7 @@ function App() {
   function handleChange (event) {
     const element = event.target;
     const id = element.id;
-    const temp = catState;
+    const temp = catList;
 
     for (var i=0; i<temp.length; i++) {
       if (temp[i].id == id) {
@@ -38,17 +38,17 @@ function App() {
       }
     }
 
-    setCatState(temp);
+    setCatList(temp);
   }
 
   function handleSave (cat) {
-    const catList = catState;
+    const catListConst = catList;
     setCat(cat);
 
-    for (var i=0; i<catList.length; i++) {
-      if (catList[i].id == cat.id) {
-        catList[i] = cat;
-        setCatState(catList);
+    for (var i=0; i<catListConst.length; i++) {
+      if (catListConst[i].id == cat.id) {
+        catListConst[i] = cat;
+        setCatList(catListConst);
         break;
       }
     }
@@ -61,7 +61,7 @@ function App() {
 }
 
   function mountData () {
-    setCatState(Cats.map((cat, index) => {
+    setCatList(Cats.map((cat, index) => {
       return ({id: index+1, ...cat});
     }));
   }
@@ -70,8 +70,8 @@ function App() {
     <div className="container">
       
       <div className="catlist">
-        {catState.length === 0 ? mountData() : null}
-        {catState.map((cat, index) => {
+        {catList.length === 0 ? mountData() : null}
+        {catList.map((cat, index) => {
           return <img onClick={handleClick} className="pictures" src={cat.src} alt={cat.name} id={cat.id} key={index} />
         })}
       </div>
